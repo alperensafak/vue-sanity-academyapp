@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Welcome to Academy</h1>
+    <h1 class="title">Welcome to Academy</h1>
     <div class="courses">
       <div class="loading" v-if="loading">Loading...</div>
       <div v-if="error" class="error">

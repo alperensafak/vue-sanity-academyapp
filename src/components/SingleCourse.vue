@@ -17,6 +17,7 @@
 </template>
 
 <script>
+
 import { SanityBlocks } from "sanity-blocks-vue-component";
 import sanity from "../client";
 import imageUrlBuilder from "@sanity/image-url";
@@ -47,10 +48,12 @@ export default {
       loading: true,
       course: [],
       blocks: [],
+     
     };
   },
   created() {
     this.fetchData();
+     
   },
   methods: {
     imageUrlFor(source) {
@@ -73,6 +76,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style scoped>
