@@ -1,3 +1,4 @@
+//author fields 
 export default {
   name: 'author',
   title: 'Author',

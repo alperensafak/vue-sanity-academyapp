@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-
+//We define routes in this file.
 const routes = [
   {
     path: "/",
@@ -14,6 +14,7 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
+    //dynamic routing for spesific courses
     path: "/academy/:slug",
     name: "SingleCourse",
     component: () => import("../components/SingleCourse.vue"),

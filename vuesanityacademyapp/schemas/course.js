@@ -1,3 +1,4 @@
+//course fields 
 export default {
   name: 'course',
   title: 'Course',

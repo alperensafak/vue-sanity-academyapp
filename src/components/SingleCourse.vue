@@ -21,9 +21,12 @@
 import { SanityBlocks } from "sanity-blocks-vue-component";
 import sanity from "../client";
 import imageUrlBuilder from "@sanity/image-url";
-
+//we use imageUrlBuilder from @sanity/image-url to generate image URLs for our images.
+//we create a method called imageUrlFor() and use it inside template
 const imageBuilder = imageUrlBuilder(sanity);
 
+
+//use Sanity's GROQ API to query our data. GROQ query is used to fetch the _id, title, slug, body, image.url, author
 const query = `*[slug.current == $slug] {
   _id,
   title,
@@ -59,10 +62,14 @@ export default {
     imageUrlFor(source) {
       return imageBuilder.image(source);
     },
+    
     fetchData() {
       this.error = this.course = null;
       this.loading = true;
 
+
+//To fetch the data for a specific course we'll use its unique slug which is accessed using this.$route.params.slug. 
+//This is the route object present in Vue Router which represents the state of the current active route.
       sanity.fetch(query, { slug: this.$route.params.slug }).then(
         (course) => {
           this.loading = false;

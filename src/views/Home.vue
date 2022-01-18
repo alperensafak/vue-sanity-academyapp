@@ -7,8 +7,12 @@
         {{ error }}
       </div>
       <div class="container">
-        <div v-for="course in courses" class="course-item" :key="course._id">
+        <!-- we map over the courses array -->
+        <!-- :key attribute a value of our course's ID. -->
+        <div v-for="course in courses" class="course-item" :key="course._id"> 
+          <!-- The slug of the course is passed to its to prop.  -->
           <router-link :to="`/academy/${course.slug.current}`">
+           <img :src="imageUrlFor(course.image).width(480)" />
             <h2>{{ course.title }}</h2>
           </router-link>
           <p>{{course.excerpt}}</p>
@@ -20,14 +24,27 @@
 </template>
 
 <script>
+//import the client from the file we created
 import sanity from "../client";
+ //we use imageUrlBuilder from @sanity/image-url to generate image URLs for our images.
+import imageUrlBuilder from "@sanity/image-url";
+const imageBuilder = imageUrlBuilder(sanity);
 
+//use Sanity's GROQ API to query our data. GROQ query is used to fetch the _id, title, slug, excerpt and image.url
 const query = `*[_type == "course"]{
   _id,
   title,
   slug,
-  excerpt
+  excerpt,
+   "image": mainImage{
+  asset->{
+   url
+}
+},
 }[0...50]`;
+// This means that only the first 50 courses will be fetched.
+
+
 
 export default {
   name: "Home",
@@ -39,8 +56,16 @@ export default {
   },
   created() {
     this.fetchData();
+    
   },
+ 
+//we create a method called imageUrlFor() and use it inside template
   methods: {
+    imageUrlFor(source) {
+      return imageBuilder.image(source);
+    },
+
+    //The fetched content is stored in the courses array using this.courses=courses.
     fetchData() {
       this.error = this.course = null;
       this.loading = true;
@@ -48,6 +73,7 @@ export default {
         (courses) => {
           this.loading = false;
           this.courses = courses;
+          console.log(this.courses);
         },
         (error) => {
           this.error = error;
