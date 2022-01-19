@@ -1,26 +1,24 @@
 <template>
   <div class="home">
-    <h1 class="title">Welcome to Academy</h1>
-    <div class="courses">
-      <div class="loading" v-if="loading">Loading...</div>
+      <div class="loading text-center" v-if="loading">
+        <h2 class="text-lg text-indigo-500 tracking-widest font-medium title-font mb-1">
+        Loading...</h2></div>
       <div v-if="error" class="error">
         {{ error }}
       </div>
-      <div class="container">
-        <!-- we map over the courses array -->
-        <!-- :key attribute a value of our course's ID. -->
-        <div v-for="course in courses" class="course-item" :key="course._id"> 
-          <!-- The slug of the course is passed to its to prop.  -->
-          <router-link :to="`/academy/${course.slug.current}`">
-           <img :src="imageUrlFor(course.image).width(480)" />
-            <h2>{{ course.title }}</h2>
-          </router-link>
-          <p>{{course.excerpt}}</p>
-          <hr />
+    <h1 class="text-4xl font-medium title-font mb-4 md:mb-16 text-gray-600 my-8">Welcome to Academy</h1>
+    
+      
+     
+       
+    
+
+          
+        
         </div>
-      </div>
-    </div>
-  </div>
+     
+     
+
 </template>
 
 <script>
@@ -35,12 +33,14 @@ const query = `*[_type == "course"]{
   _id,
   title,
   slug,
+ 
   excerpt,
    "image": mainImage{
   asset->{
    url
 }
 },
+"category":category->title,
 }[0...50]`;
 // This means that only the first 50 courses will be fetched.
 
@@ -73,7 +73,7 @@ export default {
         (courses) => {
           this.loading = false;
           this.courses = courses;
-          console.log(this.courses);
+          
         },
         (error) => {
           this.error = error;
@@ -89,12 +89,6 @@ export default {
     text-align: center;
 
 }
-.container {
-  margin: 0 auto;
-  max-width: 42em;
-  width: 100%;
-}
-.course-item {
-  box-sizing: border-box;
-}
+
+
 </style>
