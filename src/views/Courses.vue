@@ -11,7 +11,7 @@
         <!-- we map over the courses array -->
         <!-- :key attribute a value of our course's ID. -->
         <div class="flex flex-wrap -m-4">
-        <div v-for="course in courses" class="course-item p-4 md:w-1/3" :key="course._id"> 
+        <div v-for="course in courses" class="course-item p-4 lg:w-1/3" :key="course._id"> 
           <!-- The slug of the course is passed to its to prop.  -->
 
 

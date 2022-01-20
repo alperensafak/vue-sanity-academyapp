@@ -1,6 +1,6 @@
 <template>
 <section class="text-gray-600 body-font">
-  <div class="container px-5  mx-auto">
+  <div class="container px-8 sm:px-24   mx-auto">
  
   <NavBar/>
   <router-view />
