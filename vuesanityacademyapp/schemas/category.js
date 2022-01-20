@@ -1,3 +1,4 @@
+//category fields 
 export default {
   name: 'category',
   title: 'Category',
