@@ -1,14 +1,10 @@
 <template>
-  
-  <lottie-animation
-      ref="anim"
-      :animationData="require('../assets/education.json')"
-    />
+ 
 
  <section class="text-gray-600 body-font">
    
   <div class="container px-5  mx-auto flex flex-wrap items-center">
-    <div class="lg:w-3/5 text-center md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+    <div class="lg:w-3/5  text-center md:w-1/2 md:pr-16 lg:pr-0 pr-0">
          <div class=" mx-auto ">
  <lottie-player class="w-full max-h-full" src="https://assets4.lottiefiles.com/packages/lf20_hzfmxrr7.json"  background="transparent"  speed="1"     loop  autoplay></lottie-player>
    
@@ -64,7 +60,7 @@
 <script>
 //import the client from the file we created
 import sanity from "../client";
-import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue"; // import lottie-vuejs
+
  //we use imageUrlBuilder from @sanity/image-url to generate image URLs for our images.
 import imageUrlBuilder from "@sanity/image-url";
 const imageBuilder = imageUrlBuilder(sanity);
@@ -89,9 +85,7 @@ const query = `*[_type == "course"]{
 
 export default {
   name: "Home",
-   components: {
-      LottieAnimation
-  },
+ 
   data() {
     return {
       loading: true,
