@@ -1,6 +1,6 @@
 <template>
-<div class=" flex flex-col items-center  h-screen">
-   <div class=" md:mt-32 lg:w-2/5 mb-12 ">
+<div class=" flex flex-col items-center   w-3/4 lg:w-2/5  bg-gray-100 rounded-lg p-8 mx-auto  mt-10 ">
+   <div class="">
          <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Login</h2>
 
 <div class="relative mb-4">

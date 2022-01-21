@@ -18,13 +18,13 @@
 
 
       <div class="">
-        <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+        <div class=" border-2 bg-white rounded-xl shadow-md overflow-hidden transform translate-y-4 hover:translate-y-0 duration-500 ease-in-out ">
            <router-link :to="`/academy/${course.slug.current}`">
-          <img class="lg:h-48 md:h-36 w-full object-cover object-center" :src="imageUrlFor(course.image).width(480)" alt="course">
+          <img class="h-48 w-full object-cover" :src="imageUrlFor(course.image).width(480)" alt="course">
           <div class="p-6">
             <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{category}}</h2>
-            <h1 class="title-font text-2xl font-medium  text-gray-900 mb-3">{{ course.title }}</h1>
-            <p class="leading-relaxed mb-3">{{course.excerpt}}</p>
+            <h1 class="block mx-1 text-lg leading-tight font-medium text-black hover:underline">{{ course.title }}</h1>
+            <p class="leading-relaxed mt-2 text-gray-500 mb-3 ">{{course.excerpt}}</p>
             <div class="flex items-center flex-wrap ">
               <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
                 <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -39,11 +39,7 @@
         </div>
       </div>
 
-<button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
-      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-        <path d="M5 12h14M12 5l7 7-7 7"></path>
-      </svg>
-    </button>
+
           
         
         </div>
